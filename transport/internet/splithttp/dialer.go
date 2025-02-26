@@ -221,6 +221,7 @@ func createHTTPClient(dest net.Destination, streamSettings *internet.MemoryStrea
 			},
 			IdleConnTimeout: connIdleTimeout,
 			ReadIdleTimeout: keepAlivePeriod,
+			MaxReadFrameSize: 16384,
 		}
 	} else {
 		httpDialContext := func(ctxInner context.Context, network string, addr string) (net.Conn, error) {
